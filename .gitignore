@@ -1,6 +1,7 @@
 # History files
 .Rhistory
 .Rapp.history
+numpy-1.11.2/
 
 # Session Data files
 .RData
