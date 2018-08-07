@@ -14,7 +14,8 @@ numpy-1.11.2/
 
 # Output files from R CMD check
 /*.Rcheck/
-
+*.json
+*.json*gz
 # RStudio files
 .Rproj.user/
 
