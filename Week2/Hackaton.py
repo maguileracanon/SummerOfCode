@@ -69,7 +69,7 @@ def print_board(a_board):
 rollDices(board)
 print_board(board)
 
-time_end = time.time() + (60*3) #Change the time range
+time_end = time.time() + (60) #Change the time range
 
 
 while time.time() < time_end:
