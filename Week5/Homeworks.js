@@ -39,9 +39,8 @@ for(i=A; i <=A_p; i++){
 //Hint: first calculate how many degrees the Moons travels in the sky 
 //when the Earth returns to the same position during its daily rotation.
 //Reference = https://www.space.com/24871-does-the-moon-rotate.html
-rot_around_earth = 1/27.322 
+rot_around_earth = 1/29.5 
 console.log("The moon moves", 360*rot_around_earth , "degrees per day around the earth")
-
 
 
 /////////////////////////////////////////////
