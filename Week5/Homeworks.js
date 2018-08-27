@@ -71,8 +71,111 @@ Chapter 1: Getting Started page 1 Chapter 2: Numbers page 9 Chapter 3: Letters p
 Optional: in JS we may prefer to 'print' these to the HTML file itself rather than the console.
 */
 
+chapters_info=[["Getting Started",1],["Numbers",9],["Letters",13]]
+for(i=0;i<chapters_info.length;i++){
+	console.log("Chapter "+String(i+1)+":   "+chapters_info[i][0]+"           page  "+String(chapters_info[i][1]));
+}
+
 
 /////////////////////// DAY 4  //////////////////////
+//“99 Bottles of Beer on the Wall.” Write a program that prints out the lyrics to that beloved classic,
+// “99 Bottles of Beer on the Wall.”
+first_verse= " bottles of beer on the wall  ";
+second_first = " bottles of beer.";
+second_verse = "Take one down and pass it around, ";
+next_count = " ";
+b=99;
+while (b>0) {
+	console.log(String(b) + first_verse + ", " + String(b) + second_first);
+	if (b > 1){
+		next_count= String(b-1);
+	}
+	else if (b==1){
+		next_count = "no more";
+		}
+	console.log(second_verse + next_count + first_verse);
+	console.log("");
+	
 
+	b=b-1;
+	
+}
+console.log("No more bottles of beer on the wall, no more bottles of beer. ")
+console.log("Go to the store and buy some more, 99 bottles of beer on the wall.")
 
+/*
+Deaf grandma. Whatever you say to Grandma (whatever you type in), she should respond with this: HUH?! SPEAK UP, GIRL!
+unless you shout it (type in all capitals). If you shout, she can hear you (or at least she thinks so) and yells back:
+NO, NOT SINCE 1938!
 
+Deaf grandma extended. What if Grandma doesn’t want you to leave? When you shout BYE, she could pretend not to hear you. Change your previous program so that you have to shout BYE three times in a row. Make sure to test your program: if you shout BYE three times but not in a row, you should still be talking to Grandma.
+
+*/
+
+num_of_bye=0;
+while (num_of_bye < 3){
+	message = prompt("Say something to grandma: ");
+	if(message == "BYE"){
+		num_of_bye +=1;
+	}
+
+		if (message== message.toUpperCase() && num_of_bye < 3){
+			randomyear = Math.floor(Math.random() * (1950-1930 + 1))  + 1930 ;
+			alert("NO, NOT SINCE " + String(randomyear));
+		}
+		else{
+			alert("HUH?! SPEAK UP, GIRL!");
+		}
+	
+}
+	
+alert("BYE SWEETHEARTH <3");
+
+/*
+Leap years. Write a program that asks for a starting year and an ending year and then puts all the leap years between them (and including them, if they are also leap years). 
+Leap years are years divisible by 4 (like 1984 and 2004). However, years divisible by 100 are not leap years (such as 1800 and 1900) unless they are also divisible by 400 (such as 1600 and 2000, which were in fact leap years). What a mess!
+*/
+
+alert("Let me give you the leap years between a period of time!! :D")
+star_year = parseInt(prompt("What is the starting year: "))
+end_year = parseInt(prompt(" OK, cool... now what would be the final year?: "))
+
+list_of_leap_years = [];
+index_list = 0;
+for (i=star_year; i< end_year; i++) {//# to include both limits
+	if(i % 100 ==0){
+		if(i % 400==0){
+			list_of_leap_years[index_list] =i;
+			index_list++;
+			console.log(i);
+		}
+	}
+	else if(i % 4 ==0){
+		list_of_leap_years[index_list] =i;
+		index_list++;
+		console.log(i);
+	}
+} 
+console.log(list_of_leap_years)
+
+/*
+Building and sorting an array. Write the program that asks us to type as many words as we want (one word per line, continuing until we just press Enter on an empty line) and then repeats the words back to us in alphabetical order. Make sure to test your program thoroughly; 
+for example, does hitting Enter on an empty line always exit your program? Even on the first line? And the second?
+*/ 
+
+list_of_Strings=[];
+index_array=0;
+newString = prompt("Type a new word, when you are ready press Enter to get your sorted the list:")
+while (newString!=""){
+	list_of_Strings[index_array]=newString.toLowerCase();
+	index_array++;
+	newString = prompt("Type a new word, when you are ready press Enter to get your sorted the list:")
+}
+
+list_of_Strings.sort();
+console.log(list_of_Strings)
+
+/*
+Table of contents. Write a table of contents program here. Start the program with a list holding all of the information for your table of contents (chapter names, page numbers, and so on). 
+Then print out the information from the list in a beautifully formatted table of contents. Use string formatting such as left align, right align, center
+*/
