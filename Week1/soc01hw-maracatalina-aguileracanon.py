@@ -1,7 +1,12 @@
 from random import randint
+from datetime import timedelta
+from datetime import date
+from datetime import datetime
+#This is a simple file with all the moeworks of week one. 
+
 #Day1 Homeworks
 #Hours in a year. How many hours are in a year?
-'''
+
 print ("Hours in a year")
 print(24*365)
 print ("Minutes in a decade (including extra day every four years)")
@@ -11,9 +16,29 @@ print((25*365*60*60*24)+(60*60*24*(6+17)))
 
 print("The age of Andreea Visanoiu​in years is")
 print((48618000/(60*60*24))/365)
-'''
+
+# How many days does it take for a 32-bit/64-bit system to timeout, 
+#if it has a bug with integer overflow?
+
+#if the system is counting every second then..
+#it has 32 slots to represent a number
+number_seconds_32 = (2**31) -1
+number_seconds_64 = (2**63)-1
+days_to_overflow_32 = (((number_seconds_32/60)/60)/24)
+days_to_overflow_64 = (((number_seconds_64/60)/60)/24)
+print( " It would take",days_to_overflow_32,"days for a 32-bits system to overflow with an integer bug every second")
+print( " It would take",days_to_overflow_64,"days for a 64-bits system to overflow with an integer bug every second")
+
+
+# Calculate your bithday accuratly
+my_brithday = datetime(1993,6,30,12,0,0,0)
+my_age_in_seconds = datetime.now() - my_brithday
+print("My accurate age in seconds is ",my_age_in_seconds.total_seconds() )
+
+
+
 #Day 3 Homeworks
-'''
+
 #Full name greeting.
 first_name = input("What is your first name")
 middle_name = input("What is your middle name")
@@ -28,10 +53,9 @@ print("Congratulations! "+ fav_num+ " is your new bigger and better favorite num
 #Angry boss
 chat = input("What do you need?: ")
 print("WHAT DO YOU MEAN " +  chat.upper()+ "??? , YOU ARE FIRED!!")
-'''
 
 #Day4 Homeworks
-'''
+
 #Lyric of 99 bottles of BEer
 first_verse= " bottles of beer on the wall  "
 second_first = " bottles of beer."
@@ -48,9 +72,9 @@ for b in range(99,0,-1):
 
 print("No more bottles of beer on the wall, no more bottles of beer. ")
 print("Go to the store and buy some more, 99 bottles of beer on the wall.")
-'''
+
 #Deaf Grandma
-'''
+
 num_of_bye=0
 while num_of_bye < 3:
 	message = input("Say something to grandma: ")
@@ -89,7 +113,28 @@ for i in range(star_year,end_year+1): # to enclude both limits
 
 
 '''
+#Go for a walk, look around the park, try to count something. 
+#Anything! And write a program about it. e.g. number of stairs, steps, windows, leaves
+# estimated in the park, kids, dogs, estimate your books by bookshelf, toiletries, wardrobe.
 
+#This program stimates the amount of working days from the current date to a future day
+#GReat for work deadlines :P
+'''
+def workingDays(endDate):
+	weekDays = 0
+	delta = endDate - date.today()
+	progress = timedelta()
+	for i in range(delta.days):
+		progress= timedelta(days=i+1)
+		if ((date.today() + progress).weekday() <5) :
+			weekDays +=1
+	return weekDays
+			
+
+transfer_dateline = date(2018,11,18)
+print("You still have",workingDays(transfer_dateline)," days to work on your transfer report")
+
+'''
 
 '''
 #Write a function that prints out "moo" n times.
@@ -113,6 +158,7 @@ list_of_Strings.sort();
 print(list_of_Strings)
 '''
 # Table of contents.
+'''
 number_of_chapters = int(input("How many chapters are in your book? "))
 print("ok... lets start adding the chapters information to the system")
 book_info = []
@@ -122,7 +168,7 @@ for i in range (0,number_of_chapters):
 	book_info.append([chap_name,chap_page])
 
 
-
+'''
 # Old-school Roman numerals. 
 '''
 def convertNumber(int_number):
@@ -164,6 +210,8 @@ def convertNumber(int_number):
 		number_in_romans += "I"*reminder
 		print("your number in old romans is :")
 		print(number_in_romans)
+
+#New roman system
 
 def convertNewRoman(int_number):
 	new_Roman_number = ""

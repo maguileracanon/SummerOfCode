@@ -3,7 +3,7 @@ from random import choice
 #Calculate a table for each letter in the alphabet from a-z, 
 #and count how many times each letter appears in alice_in_wonderland.txt 
 #this is a library to concatenate lists in a matrix
-'''
+
 alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 counter = [0 for i in range(len(alphabet))]
 filename = "aliceInWonderland.txt"
@@ -63,6 +63,34 @@ def EncriptMe(message):
 secret =input("Give me a message to encript: ")
 EncriptMe(secret)
 
+'''
+#Write a function that does a ceaser cypher (Google), 
+#ask the user a number, and shift their message by that number.
+'''
+lookUpTable2 = []
+listCharacters2 = []
+for i in range(65,97+40):
+	lookUpTable2.append(i)
+	listCharacters2.append(chr(i))
+
+
+def CeaserCypher(message,shiftValue):
+	newMessage=""
+	for k in range(len(message)):
+		if(message[k]!=" "):
+			for letter in range(len(lookUpTable2)):
+				if(message[k]==listCharacters2[letter]):
+					newMessage += listCharacters2[letter+shiftValue]
+		else:
+			newMessage +=" "
+
+
+	print(newMessage)
+	return newMessage
+
+secret2 =input("Give me a message to encript: ")
+valueToEncript=int(input("Value of shifting"))
+CeaserCypher(secret2,valueToEncript)
 '''
 # "M" is visually more dense than "o".​
 '''
@@ -180,7 +208,16 @@ for i in range(0,len(raw2)):
 print(alphabet2)
 
 #Create a dictionary with your own personal details, 
+#Practice adding, modifying, accesing.
 mara = dict(name = "mara", age = 25 , petname = "luna" , favColour ="pink")
+print(mara)
+mara["laptop"]="Asus"
+print(mara)
+mara["favFood"]="cupcake"
+print(mara)
+mara["favFood"]="smoked salmon"
+print(mara)
+del(mara["laptop"])
 print(mara)
 '''
 #Review the chat reply of today's beautiful class interaction and instantiate a student variable for everyone who shared their dream.
@@ -236,6 +273,3 @@ class Mentor(Student):
 		super().__init__(self, name,last_name,discord_id,nationality,country_based_in,email,github_account,education_level,programming_skills_level)
 		self.mentoring_in = mentoring_in
 		self.available_hours_per_week = available_hours_per_week
-
-'''
-		
